@@ -11,8 +11,6 @@ public class EurekaServiceA {
 
 	public static void main(String[] args) {
 
-//		Scanner scan = new Scanner(System.in);
-//		String profiles = scan.nextLine();
 		new SpringApplicationBuilder(EurekaServiceA.class).profiles("peerA").run(args);
 	}
 }
