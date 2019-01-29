@@ -28,3 +28,13 @@ eureka:
     instanceInfoReplicationIntervalSeconds: 10
     serviceUrl:
       defaultZone: http://peer1:8810/eureka/
+
+---
+spring:
+  application:
+    name: ribbon-loadBalance
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8810/eureka/,http://localhost:8811/eureka/
