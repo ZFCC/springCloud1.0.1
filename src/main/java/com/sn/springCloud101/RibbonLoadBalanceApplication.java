@@ -1,5 +1,9 @@
 package com.sn.springCloud101;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.WeightedResponseTimeRule;
+import com.netflix.loadbalancer.ZoneAvoidanceRule;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -31,5 +35,12 @@ public class RibbonLoadBalanceApplication {
     @LoadBalanced
     public RestTemplate restTemplate(){
         return new RestTemplate();
+    }
+
+    @Bean
+    public IRule MyRule(){
+//        return new WeightedResponseTimeRule();
+//        return new ZoneAvoidanceRule();
+        return new RandomRule();
     }
 }
